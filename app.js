@@ -69,14 +69,19 @@ const makeResult = (shows) => {
 
         titleTag.textContent = `${showName}`;
         titleTag.className = 'card-title text-center';
+
         if(showRating){
-            ratingTag.textContent = `Rating: ${showRating}`;
+            ratingTag.textContent = `Rating: ${showRating} /10`;
+            if(showRating >= 7){
+                // ratingTag.classList.add('text-success');
+                ratingTag.className = 'text-success card-title text-center'
+            }
+            if(showRating < 7){
+                ratingTag.className = 'text-warning card-title text-center'
+            }
         } else{
             ratingTag.textContent = 'Rating: N/A'
         }
-
-        ratingTag.className = 'card-title text-center'
-
 
 
         cardBody.append(titleTag);
