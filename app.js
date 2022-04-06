@@ -39,10 +39,11 @@ const makeResult = (shows) => {
 
         if (result.show.image) {
             const imageURL = result.show.image.medium;
-            const a = document. createElement('a');
+            const a = document.createElement('a');
             const img = document.createElement('img');
 
             a.href = result.show.url;
+            a.title = result.show.name;
             a.target = '_blank';
 
             img.id = 'img'
@@ -70,16 +71,16 @@ const makeResult = (shows) => {
         titleTag.textContent = `${showName}`;
         titleTag.className = 'card-title text-center';
 
-        if(showRating){
+        if (showRating) {
             ratingTag.textContent = `Rating: ${showRating} /10`;
-            if(showRating >= 7){
+            if (showRating >= 7) {
                 // ratingTag.classList.add('text-success');
                 ratingTag.className = 'text-success card-title text-center'
             }
-            if(showRating < 7){
+            if (showRating < 7) {
                 ratingTag.className = 'text-warning card-title text-center'
             }
-        } else{
+        } else {
             ratingTag.textContent = 'Rating: N/A'
         }
 
