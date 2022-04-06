@@ -19,7 +19,6 @@ form.addEventListener('submit', async function (e) {
 
 const getData = async (query) => {
     try {
-        // const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${query}`)
         const config = {params: {q: query}}
         const res = await axios.get(`https://api.tvmaze.com/search/shows?q=`, config)
         return res.data;
@@ -73,8 +72,8 @@ const makeResult = (shows) => {
 
         if (showRating) {
             ratingTag.textContent = `Rating: ${showRating} /10`;
+            //change color of rating tag based on rating good/bad
             if (showRating >= 7) {
-                // ratingTag.classList.add('text-success');
                 ratingTag.className = 'text-success card-title text-center'
             }
             if (showRating < 7) {
@@ -83,8 +82,7 @@ const makeResult = (shows) => {
         } else {
             ratingTag.textContent = 'Rating: N/A'
         }
-
-
+        
         cardBody.append(titleTag);
         cardBody.append(ratingTag);
         cardBody.append(p);
